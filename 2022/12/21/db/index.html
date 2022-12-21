@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><title>数据库基础知识</title>
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="shortcut icon" href="/img/favicon.png"><meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><header class="base-menu"><div class="menu-wrapper"><div class="menu-layout-bg"></div><nav class="menu-content"><ul class="menu-list"><li class="menu-item"><a href="/" class="menu-link">小房的技术栈</a></li><li class="menu-item"><a href="/archives" class="menu-link">Archives</a></li><li class="menu-item"><a href="/about" class="menu-link">About</a></li></ul></nav></div></header><header class="base-mobile-menu"><div class="mobile-menu-wrapper"><div class="menu-layout-bg"></div><nav class="menu-content"><ul class="menu-list"><li class="menu-item"><a href="/" class="menu-link">小房的技术栈</a></li><li class="menu-item"><a href="/archives" class="menu-link">Archives</a></li><li class="menu-item"><a href="/about" class="menu-link">About</a></li></ul></nav><div id="mobile-menu-toggle" class="toggle-menu"><span class="menu-bar"></span><span class="menu-bar"> </span><span class="menu-bar"></span></div></div></header><div class="base-content"><div class="base-content-main"><article class="article-main"><h1 class="article-title">数据库基础知识</h1><div class="article-meta"><p class="meta-item meta-time"><span class="meta-item-title">发表于: </span>2022-12-21</p><p class="meta-item meta-category"></p></div><div class="article-content"><h2 id="创建与删除数据库"><a href="#创建与删除数据库" class="headerlink" title="创建与删除数据库"></a>创建与删除数据库</h2><p>数据库使用navicat傻瓜创建比较简单，列举一些数据库的常用操作。</p>
+<h3 id="查询数据库"><a href="#查询数据库" class="headerlink" title="查询数据库"></a>查询数据库</h3><pre class=" language-mysql"><code class="language-mysql">show databases;
+</code></pre>
+<p><em>ps: 数据库代码一定要加分号，否则会出现箭头，出现箭头说明没有写完，添加分号即可。</em></p>
+<h3 id="创建库"><a href="#创建库" class="headerlink" title="创建库"></a>创建库</h3><pre class=" language-mysql"><code class="language-mysql">CREATE DATABASE 数据库名 DEFAULT CHARACTER SET 字符编码
+</code></pre>
+<h3 id="删除库"><a href="#删除库" class="headerlink" title="删除库"></a>删除库</h3><pre class=" language-mysql"><code class="language-mysql">DROP DATABASE 数据库名称;
+</code></pre>
+<h3 id="选择库"><a href="#选择库" class="headerlink" title="选择库"></a>选择库</h3><pre class=" language-mysql"><code class="language-mysql">USE 数据库名;
+</code></pre>
+<h2 id="mysql的数据类型"><a href="#mysql的数据类型" class="headerlink" title="mysql的数据类型"></a>mysql的数据类型</h2><table>
+<thead>
+<tr>
+<th align="left">mysql数据类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">tinyint(m)</td>
+<td>1个字节</td>
+</tr>
+<tr>
+<td align="left">smallint(m)</td>
+<td>2个字节</td>
+</tr>
+<tr>
+<td align="left">mediumint(m)</td>
+<td>3个字节</td>
+</tr>
+<tr>
+<td align="left">int(m)</td>
+<td>4个字节</td>
+</tr>
+<tr>
+<td align="left">bigint(m)</td>
+<td>8个字节</td>
+</tr>
+</tbody></table>
+<h2 id="创建表与删除表"><a href="#创建表与删除表" class="headerlink" title="创建表与删除表"></a>创建表与删除表</h2><p>表就是数据库中的子集，用于存储用户数据。</p>
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><pre class=" language-mysql"><code class="language-mysql">CREATE TABLE 表名(列名 类型,列名 类型......);
+</code></pre>
+<p>例如：</p>
+<pre class=" language-mysql"><code class="language-mysql">create table employees(employee_id
+int,employee_name varchar(10),salary
+float(8,2));
+</code></pre>
+<p>然后查看自己创建的表：</p>
+<pre class=" language-mysql"><code class="language-mysql">show tables;
+</code></pre>
+<p>如图所示：</p>
+<p><img src="dbpic1.png"></p>
+<h2 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h2><p>修改表就是把表的一些内容进行修改。</p>
+<h3 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h3><pre class=" language-mysql"><code class="language-mysql">ALTER TABLE 旧表名 RENAME 新表名;
+</code></pre>
+<p>示例一：</p>
+<p>创建一个 employees 表包含雇员 ID ，雇员名字，雇员薪水。</p>
+<pre class=" language-mysql"><code class="language-mysql">create table employees(employee_id int, employee_name varchar(10), salary float(8,2));
+</code></pre>
+<p>示例二：</p>
+<p>将 employees 表名修改为 emp。</p>
+<pre class=" language-mysql"><code class="language-mysql">alter table employees rename emp;
+</code></pre>
+<p>如图所示：</p>
+<p><img src="dbpic2.png"></p>
+</div></article><div id="base-discus"></div></div></div><footer class="base-footer"><div class="footer-wrapper"><span>John Doe Using </span><a target="_blank" rel="noopener" href="https://github.com/chuguixin/Simple"><span>Simple</span></a><span> Presents For You.</span></div></footer><div class="dom-ready">
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="/js/base.js"></script>
+</div></body></html>
